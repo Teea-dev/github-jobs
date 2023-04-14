@@ -35,4 +35,19 @@
       justify-content: center;
     }
   }
+  .find-jobs-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 3em;
+  .preference{
+    .location-input{
+
+      border: 1px solid red;
+    }
+    .places{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  }
 }
