@@ -1,19 +1,37 @@
 import { useState } from "react";
 
+import axios from "axios";
 import "./App.scss";
 
 function App() {
+  const [email, setEmail] = useState("");
+
+  const loadData = (e) => {
+    e.preventDefault();
+
+    axios
+      .get(
+        `https://serpapi.com/search.json?engine=google_jobs&q= ${email} &hl=en`
+      )
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+
   return (
     <div className="container">
       <h1 className="title">Find your dream job</h1>
 
       <div className="input-container">
         <input
-          type="email"
-          placeholder="Type Your Email"
+          type="text"
+          placeholder="search for jobs"
           className="email-input"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
         />
-        <button type="submit" className="submit-button">
+        <button type="submit" onClick={loadData} className="submit-button">
           search
         </button>
       </div>
@@ -47,7 +65,6 @@ function App() {
         <div className="job-posts">
           <div className="job-card">
             <h2>Front end software developer</h2>
-
           </div>
         </div>
       </div>
