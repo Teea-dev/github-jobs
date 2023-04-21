@@ -6,8 +6,8 @@ import "./App.scss";
 function App() {
   const [email, setEmail] = useState("");
 
-  const loadData = (e) => {
-    e.preventDefault();
+  const loadData = () => {
+    // e.preventDefault();
 
     axios
       .get(
@@ -31,7 +31,7 @@ function App() {
             setEmail(e.target.value);
           }}
         />
-        <button type="submit" onClick={loadData} className="submit-button">
+        <button type="button" onClick={loadData} className="submit-button">
           search
         </button>
       </div>
