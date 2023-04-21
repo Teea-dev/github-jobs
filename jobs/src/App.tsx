@@ -7,7 +7,6 @@ function App() {
   const [email, setEmail] = useState("");
 
   const loadData = () => {
-    // e.preventDefault();
 
     axios
       .get(
